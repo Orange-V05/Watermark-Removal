@@ -7,12 +7,14 @@ import numpy as np
 from torch.utils.data import Dataset, DataLoader
 from unet_model import UNet
 
+
 # Hyperparameters
 batch_size = 4
 epochs = 25  # Try 25 or more
 learning_rate = 1e-4
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
+
 
 # Dataset
 class WatermarkDataset(Dataset):
@@ -57,7 +59,8 @@ model = UNet(in_channels=3, out_channels=3).to(device)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-# Train
+
+#  Train
 for epoch in range(epochs):
     model.train()
     running_loss = 0.0
@@ -100,7 +103,7 @@ with torch.no_grad():
             output = cv2.resize((output * 255).astype(np.uint8), original_size)
             output_bgr = cv2.cvtColor(output, cv2.COLOR_RGB2BGR)
 
-            # Save comparison side-by-side
+            # Save comparison side by side
             combined = cv2.hconcat([image, output_bgr])
             cv2.imwrite(os.path.join(output_dir, f"cleaned_{filename}"), combined)
             print(f"Saved result: cleaned_{filename}")
