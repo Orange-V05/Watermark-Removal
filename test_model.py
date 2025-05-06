@@ -26,6 +26,7 @@ class WatermarkDataset(Dataset):
             if os.path.isfile(os.path.join(watermarked_dir, f)) and f.lower().endswith(('.jpg', '.jpeg', '.png'))
         ]
 
+    
     def __getitem__(self, idx):
         filename = self.filenames[idx]
         wm = cv2.imread(os.path.join(self.watermarked_dir, filename))
@@ -45,16 +46,17 @@ class WatermarkDataset(Dataset):
 
         return wm, clean
 
+    
     def __len__(self):
         return len(self.filenames)
 
-# Load data
+# Load_data
 watermarked_dir = "D:/watermark images/Watermarked"
 clean_dir = "D:/watermark images/Clean"
 train_dataset = WatermarkDataset(watermarked_dir, clean_dir)
 train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
-# Model setup
+# Model_setup
 model = UNet(in_channels=3, out_channels=3).to(device)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
