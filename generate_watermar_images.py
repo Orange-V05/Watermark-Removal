@@ -40,7 +40,7 @@ for filename in os.listdir(clean_dir):
     img_path = os.path.join(clean_dir, filename)
     image = cv2.imread(img_path)
     if image is None:
-        print(f"Failed to read {img_path}")
+        print(f"Failed to read the {img_path}")
         continue
 
     text = random.choice(watermark_texts)
