@@ -3,7 +3,7 @@ import cv2
 import random
 import numpy as np
 
-# ---------- Config ----------
+# Config
 clean_dir = r"D:/watermark images/clean"
 watermarked_dir = r"D:/watermark images/watermarked"
 os.makedirs(watermarked_dir, exist_ok=True)
@@ -11,7 +11,7 @@ os.makedirs(watermarked_dir, exist_ok=True)
 # List of sample watermark texts
 watermark_texts = ["Sample", "Protected", "Do Not Copy", "Demo", "Watermark"]
 
-# ---------- Generate ----------
+# Generate
 def apply_watermark(image, text="Sample"):
     h, w = image.shape[:2]
     overlay = image.copy()
@@ -32,7 +32,7 @@ def apply_watermark(image, text="Sample"):
     watermarked = cv2.addWeighted(overlay, alpha, image, 1 - alpha, 0)
     return watermarked
 
-# ---------- Process ----------
+# Process
 for filename in os.listdir(clean_dir):
     if not filename.lower().endswith((".jpg", ".png", ".jpeg")):
         continue
