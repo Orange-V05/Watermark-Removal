@@ -1,21 +1,31 @@
-🧼 Watermark Removal Using U-Net (PyTorch)
-This project leverages a deep learning model based on the U-Net architecture (implemented in PyTorch) to automatically detect and remove watermarks from images.
+# 🧼 Watermark Removal Using U-Net (PyTorch)
+
+This project leverages a deep learning model based on the **U-Net architecture** (implemented in PyTorch) to automatically detect and remove watermarks from images.
 
 It is designed for easy use—even by users with minimal machine learning experience.
 
-📂 Project Structure
-Watermark Removal/
-├── unet_model.py         # Defines the U-Net architecture
-├── test_model.py         # Trains the model and removes watermarks
-├── Watermarked/          # Folder containing watermarked input images
-├── Clean/                # Folder with corresponding clean (ground truth) images
-├── output/               # Output folder for processed, watermark-free images
+---
 
-🔧 Requirements
-Make sure you have Python 3.10 or higher installed.
+## 📂 Project Structure
+
+Watermark Removal/
+├── unet_model.py # Defines the U-Net architecture
+├── test_model.py # Trains the model and removes watermarks
+├── Watermarked/ # Folder containing watermarked input images
+├── Clean/ # Folder with corresponding clean (ground truth) images
+├── output/ # Output folder for processed, watermark-free images
+├── References.docx # Project references and documentation
+
+
+---
+
+## 🔧 Requirements
+
+Make sure you have **Python 3.10 or higher** installed.
 
 Install the required Python packages:
 
+```bash
 pip install torch torchvision opencv-python numpy
 
 🚀 How to Use
@@ -30,8 +40,8 @@ Important: Filenames must match (e.g., W1.jpg in both folders).
 
 2. Train and Run the Model
 Open a terminal in the project directory and run:
-
 python test_model.py
+
 3. Output
 After training, the model automatically removes watermarks from all images in the Watermarked/ folder.
 
@@ -54,6 +64,9 @@ Cleaning up scanned documents
 
 Preparing training datasets for other vision tasks
 
+📄 References
+You can view the references and background research for this project in the References.docx file.
+
 🤝 Contributions
 Feel free to fork, improve, or report issues.
 Pull requests are welcome!
@@ -62,4 +75,3 @@ Pull requests are welcome!
 Maintainer: Orange-V05 on GitHub
 Built by: Vardaan Kapania, Arun Polson, Husnain Ali
 University Project – 2025
-
