@@ -1,45 +1,65 @@
-# Watermark Removal with U-Net (PyTorch)
+🧼 Watermark Removal Using U-Net (PyTorch)
+This project leverages a deep learning model based on the U-Net architecture (implemented in PyTorch) to automatically detect and remove watermarks from images.
 
-This project uses a deep learning model (U-Net architecture) built with PyTorch to automatically remove watermarks from images. The model is trained on pairs of watermarked and clean images and can process all images in a directory.
+It is designed for easy use—even by users with minimal machine learning experience.
 
-## 📁 Folder Structure
+📂 Project Structure
+Watermark Removal/
+├── unet_model.py         # Defines the U-Net architecture
+├── test_model.py         # Trains the model and removes watermarks
+├── Watermarked/          # Folder containing watermarked input images
+├── Clean/                # Folder with corresponding clean (ground truth) images
+├── output/               # Output folder for processed, watermark-free images
 
-- `unet_model.py`: Contains the U-Net model definition.
-- `test_model.py`: Runs training and processes images for watermark removal.
-- `Watermarked/`: Folder containing images with watermarks.
-- `Clean/`: Folder containing clean ground-truth images (for training).
-- `output/`: Folder where processed (watermark-free) images are saved.
+🔧 Requirements
+Make sure you have Python 3.10 or higher installed.
 
-## ⚙️ Requirements
+Install the required Python packages:
 
-- Python 3.10 or above
-- PyTorch
-- OpenCV
-- NumPy
-- torchvision
-
-Install them via:
-
-```bash
 pip install torch torchvision opencv-python numpy
-```
 
-## 🚀 How to Run
+🚀 How to Use
+Follow these steps to run the watermark removal project:
 
-1. Place your watermarked images (JPEG, JPG, PNG, etc.) inside the `Watermarked/` folder.
-2. Place the corresponding clean images in the `Clean/` folder for training (use same filenames).
-3. Run the model:
+1. Prepare the Image Dataset
+Save your watermarked images in the Watermarked/ folder.
+Supported formats: .jpg, .jpeg, .png.
 
-```bash
+Save the clean versions of the same images (without watermark) in the Clean/ folder.
+Important: Filenames must match (e.g., W1.jpg in both folders).
+
+2. Train and Run the Model
+Open a terminal in the project directory and run:
+
 python test_model.py
-```
+3. Output
+After training, the model automatically removes watermarks from all images in the Watermarked/ folder.
 
-4. After training, the model will automatically process all images from the `Watermarked/` folder and save the output (with watermark removed) in the `output/` directory.
+Processed images are saved to the output/ directory.
 
-## 🧠 Model
+🧠 Model Architecture
+The model uses a U-Net, a convolutional neural network originally designed for biomedical image segmentation.
 
-The U-Net model is trained using MSE loss and is designed to learn a pixel-wise mapping from watermarked images to their clean counterparts.
+🔍 Key Features:
+Learns pixel-wise differences between watermarked and clean images.
 
----
+Trained using Mean Squared Error (MSE) Loss for accurate reconstruction.
 
-Feel free to clone, use, or contribute to this project. Feedback is welcome!
+Works well with varying image resolutions and watermark styles.
+
+✅ Example Use Cases
+Removing stock photo watermarks
+
+Cleaning up scanned documents
+
+Preparing training datasets for other vision tasks
+
+🤝 Contributions
+Feel free to fork, improve, or report issues.
+Pull requests are welcome!
+
+📬 Contact
+Maintainer: Orange-V05 on GitHub
+Built by: Vardaan Kapania, Arun Polson, Husnain Ali
+University Project – 2025
+
