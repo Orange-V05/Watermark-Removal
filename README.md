@@ -1,77 +1,66 @@
-# 🧼 Watermark Removal Using U-Net (PyTorch)
+readme: |
+  # 🧼 Watermark Removal Using U-Net (PyTorch)
 
-This project leverages a deep learning model based on the **U-Net architecture** (implemented in PyTorch) to automatically detect and remove watermarks from images.
+  This project leverages a deep learning model based on the **U-Net architecture** (implemented in PyTorch) to automatically detect and remove watermarks from images.
 
-It is designed for easy use—even by users with minimal machine learning experience.
+  It is designed for easy use—even by users with minimal machine learning experience.
 
----
+  ---
 
-## 📂 Project Structure
+  ## 📂 Project Structure
 
-Watermark Removal/
-├── unet_model.py # Defines the U-Net architecture
-├── test_model.py # Trains the model and removes watermarks
-├── Watermarked/ # Folder containing watermarked input images
-├── Clean/ # Folder with corresponding clean (ground truth) images
-├── output/ # Output folder for processed, watermark-free images
-├── References.docx # Project references and documentation
+      Watermark Removal/
+      ├── unet_model.py         # Defines the U-Net architecture
+      ├── test_model.py         # Trains the model and removes watermarks
+      ├── Watermarked/          # Folder containing watermarked input images
+      ├── Clean/                # Folder with corresponding clean (ground truth) images
+      ├── output/               # Output folder for processed, watermark-free images
+      ├── References.docx       # Project references and documentation
 
+  ---
 
----
+  ## 🔧 Requirements
 
-## 🔧 Requirements
+  Make sure you have **Python 3.10 or higher** installed.
 
-Make sure you have **Python 3.10 or higher** installed.
+  Install the required Python packages:
 
-Install the required Python packages:
+      pip install torch torchvision opencv-python numpy
 
-```bash
-pip install torch torchvision opencv-python numpy
+  ---
 
-🚀 How to Use
-Follow these steps to run the watermark removal project:
+  ## 🚀 How to Use
 
-1. Prepare the Image Dataset
-Save your watermarked images in the Watermarked/ folder.
-Supported formats: .jpg, .jpeg, .png.
+  Follow these steps to run the watermark removal project:
 
-Save the clean versions of the same images (without watermark) in the Clean/ folder.
-Important: Filenames must match (e.g., W1.jpg in both folders).
+  ### 1. Prepare the Image Dataset
 
-2. Train and Run the Model
-Open a terminal in the project directory and run:
-python test_model.py
+  - Save your **watermarked images** in the `Watermarked/` folder.  
+    Supported formats: `.jpg`, `.jpeg`, `.png`
 
-3. Output
-After training, the model automatically removes watermarks from all images in the Watermarked/ folder.
+  - Save the **clean versions** of the same images (without watermark) in the `Clean/` folder.  
+    Filenames must match the watermarked ones exactly.
 
-Processed images are saved to the output/ directory.
+  ### 2. Run the Script
 
-🧠 Model Architecture
-The model uses a U-Net, a convolutional neural network originally designed for biomedical image segmentation.
+      python test_model.py
 
-🔍 Key Features:
-Learns pixel-wise differences between watermarked and clean images.
+  - The script will train the model on the dataset provided.
+  - After training, it will process **all** watermarked images and save the watermark-free versions in the `output/` folder.
 
-Trained using Mean Squared Error (MSE) Loss for accurate reconstruction.
+  ---
 
-Works well with varying image resolutions and watermark styles.
+  ## 🧠 Model Architecture
 
-✅ Example Use Cases
-Removing stock photo watermarks
+  - The model uses the **U-Net architecture**, effective for image-to-image tasks like segmentation and restoration.
+  - The model is trained using **Mean Squared Error (MSE) loss** to learn pixel-wise transformations between watermarked and clean images.
 
-Cleaning up scanned documents
+  ---
 
-Preparing training datasets for other vision tasks
+  ## 📄 References
 
-📄 References
-You can view the references and background research for this project in the References.docx file.
+  See the project reference document: [References.docx](References.docx)
 
-🤝 Contributions
-Feel free to fork, improve, or report issues.
-Pull requests are welcome!
+  ---
 
-📬 Contact
-Maintainer: Orange-V05 on GitHub
-Built by: Vardaan Kapania, Arun Polson, Husnain Ali
-University Project – 2025
+  Feel free to fork, use, or contribute to this project. Feedback and improvements are welcome!
